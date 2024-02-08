@@ -29,8 +29,11 @@
             ],
             "styles": [
               "src/styles.scss"
+              
             ],
-            "scripts": []
+            "scripts": [
+                "node_modules/gsap/dist/gsap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -103,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "5e72064e-3c7f-4a0c-a310-e9688f3a960e"
   }
 }

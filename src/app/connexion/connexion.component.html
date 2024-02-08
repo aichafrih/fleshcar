@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+<!-- register.component.html -->
+<div style="background-image: url('../../assets/bgg.png'); background-size: cover;" class="min-h-screen flex items-center justify-center bg-gray-200">
+
+    <!-- Section de droite avec le formulaire -->
+    <div class="bg-white shadow-md rounded px-9 pt-9 pb-8 mb-4 w-2/5 mr-auto ml-20">
+    
+    <div class="logo">
+      <div class="text-4xl text-center">
+        <span class="text-orange-500">Flesk</span>Car
+    </div></div>
+    <br>
+      <h2 class="text-2xl font-bold mb-4 text-center">Connexion</h2>
+
+      <form class="flex flex-col items-center">
+
+        <div class="relative z-0 w-full mb-7 group">
+          <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+        </div>
+      
+        <div class="relative z-0 w-full mb-5 group">
+          <input type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+        </div>
+      
+        <div class="flex justify-between w-full mb-5">
+          <a href="#" class="text-blue-600 hover:underline">Mot de passe oublié ?</a>
+          <a href="#" class="text-green-600 hover:underline" routerLink="/inscrie">Créer un compte</a>
+        </div>
+      
+        <button type="submit" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm w-full sm:w-auto max-w-full px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-borange-700 dark:focus:ring-borange-800">Se Connecter</button>
+      
+      </form>
+      
+      
+
+    </div>
+
+
+
+     <!-- Section de gauche avec l'image -->
+     <div class="w-2/3 ml-20">
+      <!-- Ajoutez votre image ici -->
+      <img src="../../assets/tt.png" alt="Description de l'image" class="w-full h-full object-cover">
+    </div>
+  </div>
+
+  
