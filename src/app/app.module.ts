@@ -16,6 +16,8 @@ import { CarouselModule } from './carousel/carousel.module';
 import { NavbarUserComponent } from './navbar-user/navbar-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DemandeExpertiseComponent } from './demande-expertise/demande-expertise.component';
+import { ChangeMotDePasseComponent } from './change-mot-de-passe/change-mot-de-passe.component';
+import { CodeDeConfirmationComponent } from './code-de-confirmation/code-de-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { DemandeExpertiseComponent } from './demande-expertise/demande-expertise
     PublicationDetailsComponent,
     NavbarUserComponent,
     ForgotPasswordComponent,
-    DemandeExpertiseComponent
+    DemandeExpertiseComponent,
+    ChangeMotDePasseComponent,
+    CodeDeConfirmationComponent
   ],
   imports: [
     BrowserModule,

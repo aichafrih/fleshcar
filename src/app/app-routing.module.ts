@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { PublicationDetailsComponent } from './publication-details/publication-details.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DemandeExpertiseComponent } from './demande-expertise/demande-expertise.component';
+import { ChangeMotDePasseComponent } from './change-mot-de-passe/change-mot-de-passe.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
     { path: 'profile', component: ProfileComponent },
     { path: 'home', component: HomeComponent },
     { path: 'publication-details', component: PublicationDetailsComponent },
-    { path: 'forgotPassword', component: ForgotPasswordComponent },
+    { path: 'oublier-Mot-de-passe', component: ForgotPasswordComponent },
+    { path: 'changer-Mot-de-passe', component: ChangeMotDePasseComponent },
     { path: 'demande-expertise', component: DemandeExpertiseComponent }
 ];
 
