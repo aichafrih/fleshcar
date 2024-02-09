@@ -11,10 +11,13 @@ import { PublicationDetailsComponent } from './publication-details/publication-d
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DemandeExpertiseComponent } from './demande-expertise/demande-expertise.component';
 import { ChangeMotDePasseComponent } from './change-mot-de-passe/change-mot-de-passe.component';
+import { CodeDeConfirmationComponent } from './code-de-confirmation/code-de-confirmation.component';
+import { PhotodeprofileComponent } from './photodeprofile/photodeprofile.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
     { path: 'inscrie', component: InscrieComponent },
+    { path: 'photodeprofile', component: PhotodeprofileComponent },
     { path: 'connexion', component: ConnexionComponent },
     { path: 'acceuil', component: AcceuilComponent },
     { path: 'publication', component: PublicationComponent },
@@ -22,6 +25,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'publication-details', component: PublicationDetailsComponent },
     { path: 'oublier-Mot-de-passe', component: ForgotPasswordComponent },
+    { path: 'code-de-confirmation', component: CodeDeConfirmationComponent },
     { path: 'changer-Mot-de-passe', component: ChangeMotDePasseComponent },
     { path: 'demande-expertise', component: DemandeExpertiseComponent }
 ];
