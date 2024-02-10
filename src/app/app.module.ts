@@ -20,6 +20,7 @@ import { ChangeMotDePasseComponent } from './change-mot-de-passe/change-mot-de-p
 import { CodeDeConfirmationComponent } from './code-de-confirmation/code-de-confirmation.component';
 import { PhotodeprofileComponent } from './photodeprofile/photodeprofile.component';
 import { SupprimerComponent } from './supprimer/supprimer.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SupprimerComponent } from './supprimer/supprimer.component';
     ChangeMotDePasseComponent,
     CodeDeConfirmationComponent,
     PhotodeprofileComponent,
-    SupprimerComponent
+    SupprimerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
