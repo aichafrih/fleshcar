@@ -73,6 +73,7 @@
           "configurations": {
             "production": {
               "browserTarget": "fleshcar:build:production"
+              
             },
             "development": {
               "browserTarget": "fleshcar:build:development"

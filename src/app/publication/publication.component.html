@@ -1,66 +1,64 @@
-
-
-
-    <div class="w-3/5 mx-auto bg-blur p-6 rounded-md shadow-md">
+ <div class="w-3/5 mx-auto bg-blur p-6 rounded-md shadow-md">
 
         <h2 class="text-2xl font-semibold mb-4">Publier une Annonce de Vente</h2>
 
-        <form action="#" method="post" enctype="multipart/form-data">
+        <form enctype="multipart/form-data">
             <div class="grid md:grid-cols-2 md:gap-6">
             <div class="mb-4">
                 <label for="marque" class="block text-gray-700 text-sm font-bold mb-2">Marque:</label>
-                <input type="text" id="marque" name="marque" class="w-full p-2 border rounded-md">
+                <input  [(ngModel)]="data.marque"type="text" id="marque" name="marque" class="w-full p-2 border rounded-md">
             </div>
 
             <div class="mb-4">
-                <label for="modele" class="block text-gray-700 text-sm font-bold mb-2">Modèle:</label>
-                <input type="text" id="modele" name="modele" class="w-full p-2 border rounded-md">
+                <label for="model" class="block text-gray-700 text-sm font-bold mb-2">Modèle:</label>
+                <input  [(ngModel)]="data.model" type="text" id="model" name="model" class="w-full p-2 border rounded-md">
             </div>
             </div>
             <div class="grid md:grid-cols-2 md:gap-6">
             <div class="mb-4">
-                <label for="annee" class="block text-gray-700 text-sm font-bold mb-2">Année de Fabrication:</label>
-                <input type="text" id="annee" name="annee" class="w-full p-2 border rounded-md">
+                <label for="anneeFabrication" class="block text-gray-700 text-sm font-bold mb-2">Année de Fabrication:</label>
+                <input  [(ngModel)]="data.anneeFabrication" type="number" id="anneeFabrication" name="anneeFabrication" class="w-full p-2 border rounded-md">
             </div>
 
             <div class="mb-4">
                 <label for="carburant" class="block text-gray-700 text-sm font-bold mb-2">Type de Carburant:</label>
-                <select id="carburant" name="carburant" class="w-full p-2 border rounded-md">
+                <select [(ngModel)]="data.typeCarburant"  id="carburant" name="carburant" class="w-full p-2 border rounded-md">
                     <option value="essence">Essence</option>
                     <option value="diesel">Diesel</option>
                     <option value="electrique">Électrique</option>
-                    <!-- Ajoutez d'autres options selon vos besoins -->
+                    <option value="GPL">GPL</option>
+                    
+                
                 </select>
             </div>
         </div>
             
-            <!-- Ajoutez d'autres champs selon vos besoins -->
-            <!-- ... (code précédent) ... -->
+          
 
 <div class="mb-4">
     <label for="prix" class="block text-gray-700 text-sm font-bold mb-2">Prix:</label>
-    <input type="text" id="prix" name="prix" class="w-full p-2 border rounded-md">
+    <input [(ngModel)]="data.prix" type="number" id="prix" name="prix" class="w-full p-2 border rounded-md">
 </div>
 <div class="grid md:grid-cols-3 md:gap-6">
 <div class="mb-4">
     <label for="nombrePlaces" class="block text-gray-700 text-sm font-bold mb-2">Nombre de Places:</label>
-    <input type="number" id="nombrePlaces" name="nombrePlaces" class="w-full p-2 border rounded-md">
+    <input  [(ngModel)]="data.nombrePlace" type="number" id="nombrePlaces" name="nombrePlaces" class="w-full p-2 border rounded-md">
 </div>
 
 <div class="mb-4">
     <label for="couleur" class="block text-gray-700 text-sm font-bold mb-2">Couleur:</label>
-    <input type="color" id="couleur" name="couleur" class="w-full p-2 border rounded-md" />
+    <input  [(ngModel)]="data.couleur" type="text" id="couleur" name="couleur" class="w-full p-2 border rounded-md" />
 </div>
 
 <div class="mb-4">
     <label for="kilometrage" class="block text-gray-700 text-sm font-bold mb-2">Kilométrage:</label>
-    <input type="number" id="kilometrage" name="kilometrage" class="w-full p-2 border rounded-md">
+    <input [(ngModel)]="data.kilometrage" type="number" id="kilometrage" name="kilometrage" class="w-full p-2 border rounded-md">
 </div>
 </div>
 
 <div class="mb-4">
-    <label for="etat" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
-    <textarea id="etat" name="etat" class="w-full p-2 border rounded-md"></textarea>
+    <label for="Description" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
+    <textarea  [(ngModel)]="data.descrption" id="Description" name="Description" class="w-full p-2 border rounded-md"></textarea>
 </div>
 
 
@@ -88,7 +86,7 @@
 </div>
 
             <div class="mb-4">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Publier</button>
+                <button (click)="AjouterPublication()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Publier</button>
             </div>
 
         </form>
