@@ -14,6 +14,7 @@ export class SharedService {
   inscription(data: any){
     return this.http.post(this.url + 'auth/inscription', data);
   }
+
   connexion(data: any){
     return this.http.post(this.url + 'auth/connexion', data);
   }

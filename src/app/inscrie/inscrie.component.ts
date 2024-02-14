@@ -6,9 +6,9 @@ import { SharedService } from '../shared.service';
   templateUrl: './inscrie.component.html',
   styleUrls: ['./inscrie.component.scss']
 })
-export class InscrieComponent implements OnInit{
+export class InscrieComponent implements OnInit {
   showModal = false;
-
+  connectedUser: any;
   // Fonction pour ouvrir la fenêtre modale
   openModal() {
     this.showModal = true;
@@ -20,68 +20,72 @@ export class InscrieComponent implements OnInit{
   }
 
 
- data = { 
-  Nom: '',
-  Prenom: '',
-  email:  '',
-  NumTel: '',
-  Adresse:'',
-  MotDePasse: '',
-  Ville: '',
-  CodePostal:''
-} 
-
-async Inscription() {
-  try {
-    // Ajoutez des validations avant de soumettre les données
-    if (!this.validateEmail(this.data.email)) {
-      console.log("L'adresse e-mail est invalide");
-      return;
-    }
-    if (!this.validateNumTel(this.data.NumTel)) {
-      console.log("Le numéro de téléphone est invalide");
-      return;
-    }
-    if (!this.validateCodePostal(this.data.CodePostal)) {
-      console.log("Le code postal est invalide");
-      return;
-    }
-    if (!this.validateMotDePasse(this.data.MotDePasse)) {
-      alert("Le mot de passe est invalide");
-      return;
-    }
-
-    const res = await this._shared.inscription(this.data).toPromise();
-    console.log(res);
-    this.openModal();
-  } catch (err) {
-    console.log(err);
+  data = {
+    Nom: '',
+    Prenom: '',
+    email: '',
+    NumTel: '',
+    Adresse: '',
+    MotDePasse: '',
+    Ville: '',
+    CodePostal: ''
   }
-}
 
-// Valider l'email
-validateEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
+  async Inscription() {
 
-// Valider le numéro de téléphone (doit être exactement 8 chiffres)
-validateNumTel(numTel: string): boolean {
-  return /^\d{8}$/.test(numTel);
-}
+    try {
+      // Ajoutez des validations avant de soumettre les données
+      if (!this.validateEmail(this.data.email)) {
+        console.log("L'adresse e-mail est invalide");
+        return;
+      }
+      if (!this.validateNumTel(this.data.NumTel)) {
+        console.log("Le numéro de téléphone est invalide");
+        return;
+      }
+      if (!this.validateCodePostal(this.data.CodePostal)) {
+        console.log("Le code postal est invalide");
+        return;
+      }
+      if (!this.validateMotDePasse(this.data.MotDePasse)) {
+        alert("Le mot de passe est invalide");
+        return;
+      }
 
-// Valider le code postal (doit être exactement 4 chiffres)
-validateCodePostal(codePostal: string): boolean {
-  return /^\d{4}$/.test(codePostal);
-}
 
-// Valider le mot de passe (au moins une lettre majuscule, une lettre minuscule et un chiffre)
-validateMotDePasse(motDePasse: string): boolean {
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-  return passwordRegex.test(motDePasse);
-}
 
-  constructor(private _shared: SharedService) {}
-  ngOnInit():void {}
+      const res = await this._shared.inscription(this.data).toPromise();
+      console.log(res);
+      this.openModal();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+
+  // Valider l'email
+  validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // Valider le numéro de téléphone (doit être exactement 8 chiffres)
+  validateNumTel(numTel: string): boolean {
+    return /^\d{8}$/.test(numTel);
+  }
+
+  // Valider le code postal (doit être exactement 4 chiffres)
+  validateCodePostal(codePostal: string): boolean {
+    return /^\d{4}$/.test(codePostal);
+  }
+
+  // Valider le mot de passe (au moins une lettre majuscule, une lettre minuscule et un chiffre)
+  validateMotDePasse(motDePasse: string): boolean {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    return passwordRegex.test(motDePasse);
+  }
+
+  constructor(private _shared: SharedService) { }
+  ngOnInit(): void { }
 
 }
