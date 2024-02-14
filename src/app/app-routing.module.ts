@@ -12,12 +12,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { DemandeExpertiseComponent } from './demande-expertise/demande-expertise.component';
 import { ChangeMotDePasseComponent } from './change-mot-de-passe/change-mot-de-passe.component';
 import { CodeDeConfirmationComponent } from './code-de-confirmation/code-de-confirmation.component';
-import { PhotodeprofileComponent } from './photodeprofile/photodeprofile.component';
+
 
 const routes: Routes = [
   { path: '', component: AppComponent },
     { path: 'inscrie', component: InscrieComponent },
-    { path: 'photodeprofile', component: PhotodeprofileComponent },
     { path: 'connexion', component: ConnexionComponent },
     { path: 'acceuil', component: AcceuilComponent },
     { path: 'publication', component: PublicationComponent },
