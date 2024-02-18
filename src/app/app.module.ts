@@ -25,6 +25,10 @@ import { SupprimerComponent } from './supprimer/supprimer.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule} from '@angular/common/http';
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,13 +51,16 @@ import { HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+  
     FormsModule,
     CommonModule,
     AppRoutingModule,
     CarouselModule,
     HttpClientModule
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

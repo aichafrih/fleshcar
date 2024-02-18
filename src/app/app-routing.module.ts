@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
+
+
+
 import { InscrieComponent } from './inscrie/inscrie.component';
 import { AppComponent } from './app.component';
+
+
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { PublicationComponent } from './publication/publication.component';
@@ -15,12 +21,13 @@ import { CodeDeConfirmationComponent } from './code-de-confirmation/code-de-conf
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '', component: AppComponent },
     { path: 'inscrie', component: InscrieComponent },
     { path: 'connexion', component: ConnexionComponent },
     { path: 'acceuil', component: AcceuilComponent },
     { path: 'publication', component: PublicationComponent },
-    { path: 'profile', component: ProfileComponent },
+    { path: 'profil/:userId', component: ProfileComponent, canActivate: [AuthGuard]},
     { path: 'home', component: HomeComponent },
     { path: 'publication-details', component: PublicationDetailsComponent },
     { path: 'oublier-Mot-de-passe', component: ForgotPasswordComponent },

@@ -18,7 +18,7 @@
   
       <!-- Champ Nom -->
   <div class="relative z-0 w-full mb-5 group">
-    <input [(ngModel)]="data.Nom" type="text" name="Nom" id="Nom" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+    <input [(ngModel)]="data.Nom" type="text" name="Nom" id="Nom" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required  autocomplete="disabled"/>
     <label for="Nom" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nom</label>
     <!-- Message d'erreur -->
     <div *ngIf="signupForm.controls['Nom']?.invalid && signupForm.controls['Nom'].touched" class="text-red-500 text-sm">Nom est requis.</div>
@@ -27,7 +27,7 @@
 
   <!-- Champ Prénom -->
 <div class="relative z-0 w-full mb-5 group">
-  <input [(ngModel)]="data.Prenom" type="text" name="Prenom" id="Prenom" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+  <input [(ngModel)]="data.Prenom" type="text" name="Prenom" id="Prenom" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required autocomplete="off"/>
   <label for="Prenom" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Prénom</label>
   <!-- Message d'erreur -->
   <div *ngIf="signupForm.controls['Prenom']?.invalid && signupForm.controls['Prenom'].touched" class="text-red-500 text-sm">Prénom est requis.</div>
@@ -36,7 +36,7 @@
 </div>
 <!-- Champ Email -->
 <div class="relative z-0 w-full mb-7 group">
-  <input [(ngModel)]="data.email" type="email" name="email" id="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+  <input [(ngModel)]="data.email" type="email" name="email" id="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required autocomplete="off"/>
   <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
   <!-- Message d'erreur -->
   <div *ngIf="signupForm.controls['email']?.invalid && signupForm.controls['email'].touched" class="text-red-500 text-sm">Email est requis.</div>
@@ -45,7 +45,7 @@
 
 <!-- Champ Numéro de Téléphone -->
 <div class="relative z-0 w-full mb-5 group">
-  <input [(ngModel)]="data.NumTel" type="text" name="NumTel" id="NumTel" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+  <input [(ngModel)]="data.NumTel" type="text" name="NumTel" id="NumTel" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required autocomplete="off"/>
   <label for="NumTel" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Numéro de Téléphone</label>
   <!-- Message d'erreur -->
   <div *ngIf="signupForm.controls['NumTel']?.invalid && signupForm.controls['NumTel'].touched" class="text-red-500 text-sm">Numéro de Téléphone est requis.</div>
@@ -56,7 +56,7 @@
 
   <!-- Champ Adresse -->
 <div class="relative z-0 w-full mb-5 group">
-  <input [(ngModel)]="data.Adresse" type="text" name="Adresse" id="Adresse" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+  <input [(ngModel)]="data.Adresse" type="text" name="Adresse" id="Adresse" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required autocomplete="off"/>
   <label for="Adresse" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Adresse</label>
   <!-- Message d'erreur -->
   <div *ngIf="signupForm.controls['Adresse']?.invalid && signupForm.controls['Adresse'].touched" class="text-red-500 text-sm">Adresse est requise.</div>
@@ -65,7 +65,7 @@
 <div class="grid md:grid-cols-2 md:gap-6">
 <!-- Champ Ville -->
 <div class="relative z-0 w-full mb-5 group">
-  <input [(ngModel)]="data.Ville" type="text" name="Ville" id="Ville" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+  <input [(ngModel)]="data.Ville" type="text" name="Ville" id="Ville" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required autocomplete="off"/>
   <label for="Ville" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Ville</label>
   <!-- Message d'erreur -->
   <div *ngIf="signupForm.controls['Ville']?.invalid && signupForm.controls['Ville'].touched" class="text-red-500 text-sm">Ville est requise.</div>
@@ -73,7 +73,7 @@
 
 <!-- Champ Code Postal -->
 <div class="relative z-0 w-full mb-5 group">
-  <input [(ngModel)]="data.CodePostal" type="text" name="CodePostal" id="CodePostal" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+  <input [(ngModel)]="data.CodePostal" type="text" name="CodePostal" id="CodePostal" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required autocomplete="off"/>
   <label for="CodePostal" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Code Postal</label>
   <!-- Message d'erreur -->
   <div *ngIf="!validateCodePostal(data.CodePostal) && data.CodePostal !== ''" class="text-gray-600 text-sm">le code postal (doit être exactement 4 chiffres)</div>
@@ -91,12 +91,14 @@
   <div *ngIf="!validateMotDePasse(data.MotDePasse) && data.MotDePasse !== ''" class="text-gray-600 text-sm">Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et un chiffre.</div>
 </div>
 <div class="grid md:grid-cols-2 md:gap-6">
-<!-- <div class="relative z-0 w-full mb-5 group">
-    <input  type="password" name="MotDePasse" id="MotDePasse"  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-    <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
-</div> -->
+
+<div class="relative z-0 w-full mb-5 group">
+    <input  type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+    <label for="MotDePasseConfirmation" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
+</div> 
 
   <button type="submit"  class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-borange-700 dark:focus:ring-borange-800">inscrie</button>
+
 </div>
 </form>
 
@@ -126,10 +128,11 @@
               <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
               </svg>
-              <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+              
+              <div class="mt-4 flex text-sm leading-6 text-gray-600" >
+                <label for="photoProfile" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                   <span>Télécharger un fichier</span>
-                  <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                  <input  (change)="onFileSelected($event)"    type="file" >
                 </label>
               </div>
               <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF</p>
@@ -137,7 +140,7 @@
           </div>
         </div>
         <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-          <button class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-orange-500 text-base font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" routerLink="/acceuil" (click)="closeModal()">
+          <button (click)="onUpload()" class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-orange-500 text-base font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" routerLink="/acceuil" (click)="closeModal()">
             Enregistrer la photo
           </button>
           <button class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:w-auto sm:text-sm" routerLink="/acceuil" (click)="closeModal()">

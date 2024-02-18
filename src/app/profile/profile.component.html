@@ -4,7 +4,7 @@
 
 
 
-<div class="bg-gray-300">
+<div class="bg-gray-300" *ngIf="user">
 
   <!-- End of Navbar -->
   <app-navbar-user></app-navbar-user>
@@ -75,12 +75,12 @@
                   <div class="text-gray-700">
                       <div class="grid md:grid-cols-2 text-sm">
                           <div class="grid grid-cols-2">
-                              <div class="px-4 py-2 font-semibold">First Name</div>
-                              <div class="px-4 py-2">Jane</div>
+                              <div class="px-4 py-2 font-semibold">Prénom</div>
+                              <div class="px-4 py-2">{{ user.Prenom }}</div>
                           </div>
                           <div class="grid grid-cols-2">
-                              <div class="px-4 py-2 font-semibold">Last Name</div>
-                              <div class="px-4 py-2">Doe</div>
+                              <div class="px-4 py-2 font-semibold">Nom</div>
+                              <div class="px-4 py-2"> {{ user.Nom }}</div>
                           </div>
                           <div class="grid grid-cols-2">
                               <div class="px-4 py-2 font-semibold">Gender</div>

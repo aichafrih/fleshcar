@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   
 
   constructor() { }
-
+ 
   
     ngOnInit(): void {
       this.initAnimations();
@@ -160,22 +160,6 @@ export class HomeComponent implements OnInit {
       scrub: 1
     }
   });
-
-  //Banner two animation
-  gsap.to(".banner-two", {
-    ease: "linear",
-    scrollTrigger: {
-      trigger: ".banner-two",
-      start: "center center",
-      end: "+=600",
-      markers: false,
-      pin: true,
-      pinSpacing: true,
-      scrub: 1
-    }
-  });
-
-  //Banner two image rotation
  
 
   // Main wrapper card
@@ -193,147 +177,6 @@ export class HomeComponent implements OnInit {
     }
   });
 
-  //slider-left img animation
-  gsap.set(".slider-left img:first-child", { xPercent: 50 });
-  gsap.set(".slider-left img:not(:first-child)", { xPercent: 100 });
-  gsap.to(".slider-left .img-1", {
-    ease: "none",
-    xPercent: -95,
-    scale: 0.6,
-    scrollTrigger: {
-      trigger: ".slider-card",
-      start: "center+=" + 180 + " center",
-      end: "center+=" + 900 + " center",
-      markers: false,
-      scrub: 1
-    }
-  });
-  gsap.to(".slider-left .img-2", {
-    ease: "none",
-    xPercent: -70,
-    scale: 0.7,
-    scrollTrigger: {
-      trigger: ".slider-card",
-      start: "center+=" + 360 + " center",
-      end: "center+=" + 900 + " center",
-      markers: false,
-      scrub: 1
-    }
-  });
-  gsap.to(".slider-left .img-3", {
-    ease: "none",
-    xPercent: -40,
-    scale: 0.8,
-    scrollTrigger: {
-      trigger: ".slider-card",
-      start: "center+=" + 540 + " center",
-      end: "center+=" + 900 + " center",
-      markers: false,
-      scrub: 1
-    }
-  });
-  gsap.to(".slider-left .img-4", {
-    ease: "none",
-    xPercent: -10,
-    scale: 0.9,
-    scrollTrigger: {
-      trigger: ".slider-card",
-      start: "center+=" + 720 + " center",
-      end: "center+=" + 900 + " center",
-      markers: false,
-      scrub: 1
-    }
-  });
-  gsap.to(".slider-left .img-5", {
-    ease: "none",
-    xPercent: 20,
-    scale: 1,
-    scrollTrigger: {
-      trigger: ".slider-card",
-      start: "center+=" + 800 + " center",
-      end: "center+=" + 900 + " center",
-      markers: false,
-      scrub: 1
-    }
-  });
-
-  // slider right img animation
-  gsap.set(".slider-right img:first-child", { xPercent: -50 });
-  gsap.set(".slider-right img:not(:first-child)", { xPercent: -100 });
-  gsap.to(".slider-right .img-1", {
-    ease: "none",
-    xPercent: 95,
-    scale: 0.6,
-    scrollTrigger: {
-      trigger: ".slider-card ",
-      start: "center+=" + 180 + " center",
-      end: "center+=" + 900 + " center",
-      markers: false,
-      scrub: 1
-    }
-  });
-  gsap.to(".slider-right .img-2", {
-    ease: "none",
-    xPercent: 70,
-    scale: 0.7,
-    scrollTrigger: {
-      trigger: ".slider-card ",
-      start: "center+=" + 360 + " center",
-      end: "center+=" + 900 + " center",
-      markers: false,
-      scrub: 1
-    }
-  });
-  gsap.to(".slider-right .img-3", {
-    ease: "none",
-    xPercent: 40,
-    scale: 0.8,
-    scrollTrigger: {
-      trigger: ".slider-card ",
-      start: "center+=" + 540 + " center",
-      end: "center+=" + 900 + " center",
-      markers: false,
-      scrub: 1
-    }
-  });
-  gsap.to(".slider-right .img-4", {
-    ease: "none",
-    xPercent: 10,
-    scale: 0.9,
-    scrollTrigger: {
-      trigger: ".slider-card ",
-      start: "center+=" + 720 + " center",
-      end: "center+=" + 900 + " center",
-      markers: false,
-      scrub: 1
-    }
-  });
-  gsap.to(".slider-right .img-5", {
-    ease: "none",
-    xPercent: -20,
-    scale: 1,
-    scrollTrigger: {
-      trigger: ".slider-card ",
-      start: "center+=" + 800 + " center",
-      end: "center+=" + 900 + " center",
-      markers: false,
-      scrub: 1
-    }
-  });
-
-  //slider card
-  gsap.to(".slider-card", {
-    ease: "linear",
-    scrollTrigger: {
-      trigger: ".slider-card",
-      start: "center center",
-      end: "+=1000",
-      markers: false,
-      pin: true,
-      pinSpacing: true,
-      scrub: 1
-    }
-  });
 
   // image source changed
   gsap.to(".anime-card-front img", {
@@ -362,6 +205,9 @@ export class HomeComponent implements OnInit {
     }
   });
 };
+
+
+
 
 
 }

@@ -1,10 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from '../shared.service';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {map} from'rxjs/operators';
-
+import { AuthServiceService } from '../auth-service.service';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-connexion',
@@ -12,53 +9,39 @@ import {map} from'rxjs/operators';
   styleUrls: ['./connexion.component.scss']
 })
 export class ConnexionComponent implements OnInit {
-  ngOnInit(): void {
-  }
+  email: string = '';
+  MotDePasse: string = '';
+  error = '';
 
+  constructor(
+    private _shared: SharedService,
+    private router: Router
+  ) {}
 
-  data = { 
-    email:  '',
-    MotDePasse: ''
-  } 
+  ngOnInit(): void {}
+
+  connexion() {
+    this._shared.connexion(this.email, this.MotDePasse).subscribe(
+      response => {
+        // Stocker le token JWT dans le stockage local ou dans un cookie
+        localStorage.setItem('token', response.token);
   
-  async Connexion() {
-    try {
-      const res = await this._shared.connexion(this.data)
-      .toPromise();
-      console.log(res);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+        // Rediriger l'utilisateur vers la page de profil en utilisant le routeur Angular
+        if (response.user && response.user.id) {
+          this.router.navigate(['/profil', response.user.id]);
+        } else {
+          console.error('Identifiant de l\'utilisateur non défini dans la réponse du backend.');
+          // Gérer l'erreur, par exemple afficher un message à l'utilisateur
+        }
   
-    constructor(private _shared: SharedService) {}
-
- // loginForm!: FormGroup;
- 
-  //constructor(private authService:SharedService,
-  //  private router:Router ) { }
-  //ngOnInit(): void {
-    //this.loginForm = new FormGroup({
-     // email: new FormControl(null,[
-     //   Validators.required,
-     //   Validators.email,
-      //Validators.minLength(6)]),
-     // password:new FormControl(null,[
-      //  Validators.required,
-      //  Validators.minLength(3)
-     // ])})}
- // onsubmit(){
-//    if (this.loginForm.invalid){
-    //  return ;}
-     // this.authService.login(this.loginForm.value).pipe(
-    //  map(token => this.router.navigate(['acceuil']))).subscribe();}}
-
-//!login(){
-  //  this.authService.login().subscribe((res)=>{
-  //    console.log("Connected");
-   //   localStorage.setItem('token', res['jwt']);
-   //   window.location.reload();
-   //   },err=>{console.error(err)}) }}
-
-
-    }
+        console.log('Connexion réussie !', response);
+        // Afficher la réponse complète du backend pour le débogage
+        console.log('Réponse du backend :', response);
+      },
+      error => {
+        console.error('Erreur lors de la connexion :', error);
+        this.error = error.error.message || 'Une erreur s\'est produite lors de la connexion.';
+      }
+    );
+  }
+}

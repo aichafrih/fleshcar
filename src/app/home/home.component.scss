@@ -102,9 +102,6 @@ h2 {
 }
 
 /*slider section*/
-.slider-card {
-  height: 100vh;
-}
 .slider-card .title {
   margin-bottom: 60px;
 }
@@ -112,37 +109,3 @@ h2 {
   width: 100%;
   margin: 0px auto;
 }
-.slider-left,
-.slider-right {
-  width: 50%;
-  height: 20vw;
-  min-height: 350px;
-  overflow: hidden;
-  position: relative;
-}
-.slider-left img {
-  position: absolute;
-  top: 0;
-  right: 0px;
-  width: 20vw;
-  min-width: 350px;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px 0px 0px 12px;
-}
-.slider-right img {
-  position: absolute;
-  top: 0;
-  left: 0px;
-  width: 20vw;
-  min-width: 350px;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0px 12px 12px 0px;
-}
-
-
-
-
-
-
