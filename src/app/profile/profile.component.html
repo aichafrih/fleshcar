@@ -19,35 +19,39 @@
                       <img class="h-auto w-full mx-auto"
                           src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg" alt="">
                   </div>
-                  <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Jane Doe</h1>
+                  <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ user.Prenom }}&nbsp;{{ user.Nom }} </h1>
                    <img src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" class="w-32 rounded-full" alt="Avatar" />
                   
                   <ul
                       class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                       <li class="flex items-center py-3">
-                          <span>Status</span>
-                          <span class="ml-auto"><span
-                                  class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
-                      </li>
-                      <li class="flex items-center py-3">
-                          <span>Member since</span>
-                          <span class="ml-auto">Nov 07, 2016</span>
+                          <span>Member depuis </span>
+                          <span class="ml-auto"> {{ user.createdAt| date:'dd-MM-yyyy'}} </span>
                       </li>
                   </ul>
-                  <button
+                  <button (click)="openModal('update')"
                   class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-300 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
                   Modifier</button>
-                  <button
-                      class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-300 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"  routerLink="/publication">
-                      Ajouter une Publication de vente</button>
+                  <button (click)="openModal('ajouterPublication')"
+                  class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-300 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
+                  Ajouter une Publication de vente</button>
 
                     <button
                       class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-300 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
                       Mes Contrat</button>
                       
-                      <button
+                      <button (click)="openModal('deleteMonCompte')"
                       class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-300 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
                       Supprimer le Compte</button>
+                      <br>
+                      
+                      <button (click)="logout()" class="inline-flex items-center justify-center w-full px-4 py-2 text-blue-800 text-sm font-semibold rounded-lg bg-gray-100 hover:bg-gray-300 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                        </svg>
+                        Déconnexion
+                      </button>
+                      
                      
               </div>
               <!-- End of profile card -->
@@ -83,24 +87,22 @@
                               <div class="px-4 py-2"> {{ user.Nom }}</div>
                           </div>
                           <div class="grid grid-cols-2">
-                              <div class="px-4 py-2 font-semibold">Gender</div>
-                              <div class="px-4 py-2">Female</div>
+                                <div class="px-4 py-2 font-semibold">Email.</div>
+                                <div class="px-4 py-2">
+                                    <a class="text-blue-800" >{{ user.email }}</a>
+                                </div>
                           </div>
                           <div class="grid grid-cols-2">
-                              <div class="px-4 py-2 font-semibold">Contact No.</div>
-                              <div class="px-4 py-2">+11 998001001</div>
+                              <div class="px-4 py-2 font-semibold">Numéro de téléphone</div>
+                              <div class="px-4 py-2">(+216) &nbsp;{{ user.NumTel }}</div>
                           </div>
                           <div class="grid grid-cols-2">
-                              <div class="px-4 py-2 font-semibold">Current Address</div>
-                              <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
+                              <div class="px-4 py-2 font-semibold">Adresse </div>
+                              <div class="px-4 py-2">{{ user.Adresse }},&nbsp;{{ user.Ville }},&nbsp;{{ user.CodePostal}}</div>
                           </div>
                           
-                          <div class="grid grid-cols-2">
-                              <div class="px-4 py-2 font-semibold">Email.</div>
-                              <div class="px-4 py-2">
-                                  <a class="text-blue-800" href="mailto:jane@example.com">jane@example.com</a>
-                              </div>
-                          </div>
+                         
+                          
                         
                       </div>
                   </div>
@@ -135,18 +137,6 @@
                                   <div class="text-teal-600">Owner at Her Company Inc.</div>
                                   <div class="text-gray-500 text-xs">March 2020 - Now</div>
                               </li>
-                              <li>
-                                  <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                  <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                              </li>
-                              <li>
-                                  <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                  <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                              </li>
-                              <li>
-                                  <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                  <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                              </li>
                           </ul>
                       </div>
                       <div>
@@ -165,10 +155,6 @@
                                   <div class="text-teal-600">Masters Degree in Oxford</div>
                                   <div class="text-gray-500 text-xs">March 2020 - Now</div>
                               </li>
-                              <li>
-                                  <div class="text-teal-600">Bachelors Degreen in LPU</div>
-                                  <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                              </li>
                           </ul>
                       </div>
                   </div>
@@ -179,3 +165,11 @@
       </div>
   </div>
 </div>
+<!-- Fenêtre modale -->
+<div *ngIf="currentPopup === 'ajouterPublication'" > <app-publication (ajoutTermine)="closeModal()"></app-publication>   </div>
+ <div *ngIf="currentPopup === 'update'" ><app-update-user (modifierTermine)="closeModal()"></app-update-user></div>
+<div *ngIf="currentPopup === 'deleteMonCompte'" ><app-delate-account></app-delate-account> </div>
+
+
+
+    

@@ -23,7 +23,13 @@ import { CodeDeConfirmationComponent } from './code-de-confirmation/code-de-conf
 
 import { SupprimerComponent } from './supprimer/supprimer.component';
 import { FooterComponent } from './footer/footer.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { AuthServiceService } from './auth-service.service';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { UserService } from './user.service';
+import { TokenInterceptor } from './token.interceptor';
+import { DelateAccountComponent } from './delate-account/delate-account.component';
+
 
 
 
@@ -47,7 +53,9 @@ import { HttpClientModule} from '@angular/common/http';
     ChangeMotDePasseComponent,
     CodeDeConfirmationComponent,
     SupprimerComponent,
-    FooterComponent
+    FooterComponent,
+    UpdateUserComponent,
+    DelateAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +67,12 @@ import { HttpClientModule} from '@angular/common/http';
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [
+   
+    UserService,
+    AuthServiceService,
+   
+  ],
   bootstrap: [AppComponent],
   
 })

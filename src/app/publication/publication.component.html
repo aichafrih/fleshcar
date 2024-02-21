@@ -1,96 +1,92 @@
- <div class="w-3/5 mx-auto bg-blur p-6 rounded-md shadow-md">
-
-        <h2 class="text-2xl font-semibold mb-4">Publier une Annonce de Vente</h2>
-
-        <form enctype="multipart/form-data">
-            <div class="grid md:grid-cols-2 md:gap-6">
+<div class="fixed inset-0 overflow-y-auto z-50  mt-8">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 sm:block sm:p-0">
+      <!-- Fond obscur -->
+      <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-300 opacity-75"></div>
+      </div>
+  
+      <!-- Contenu de la fenêtre modale -->
+      <div class="w-3/5 mx-auto p-6 rounded-md shadow-md bg-white rounded-lg overflow-hidden shadow-xl transform transition-all">
+        <h2 class="text-2xl font-semibold mb-4 text-center">Publier une Annonce de Vente</h2>
+  
+        <form enctype="multipart/form-data" (ngSubmit)="ajouterPublication()">
+          <div class="grid md:grid-cols-2 md:gap-6">
             <div class="mb-4">
-                <label for="marque" class="block text-gray-700 text-sm font-bold mb-2">Marque:</label>
-                <input  [(ngModel)]="data.marque"type="text" id="marque" name="marque" class="w-full p-2 border rounded-md">
+              <label for="marque" class="block text-gray-700 text-sm font-bold mb-2">Marque:</label>
+              <input [(ngModel)]="publication.marque"  type="text" id="marque" name="marque" class="w-full p-2 border rounded-md">
             </div>
-
+  
             <div class="mb-4">
-                <label for="model" class="block text-gray-700 text-sm font-bold mb-2">Modèle:</label>
-                <input  [(ngModel)]="data.model" type="text" id="model" name="model" class="w-full p-2 border rounded-md">
+              <label for="model" class="block text-gray-700 text-sm font-bold mb-2">Modèle:</label>
+              <input [(ngModel)]="publication.model" type="text" id="model" name="model" class="w-full p-2 border rounded-md">
             </div>
-            </div>
-            <div class="grid md:grid-cols-2 md:gap-6">
+          </div>
+          <div class="grid md:grid-cols-2 md:gap-6">
             <div class="mb-4">
-                <label for="anneeFabrication" class="block text-gray-700 text-sm font-bold mb-2">Année de Fabrication:</label>
-                <input  [(ngModel)]="data.anneeFabrication" type="number" id="anneeFabrication" name="anneeFabrication" class="w-full p-2 border rounded-md">
+              <label for="anneeFabrication" class="block text-gray-700 text-sm font-bold mb-2">Année de Fabrication:</label>
+              <input [(ngModel)]="publication.anneeFabrication" type="number" id="anneeFabrication" name="anneeFabrication" class="w-full p-2 border rounded-md">
             </div>
-
+  
             <div class="mb-4">
-                <label for="carburant" class="block text-gray-700 text-sm font-bold mb-2">Type de Carburant:</label>
-                <select [(ngModel)]="data.typeCarburant"  id="carburant" name="carburant" class="w-full p-2 border rounded-md">
-                    <option value="essence">Essence</option>
-                    <option value="diesel">Diesel</option>
-                    <option value="electrique">Électrique</option>
-                    <option value="GPL">GPL</option>
-                    
-                
-                </select>
+              <label for="typeCarburant" class="block text-gray-700 text-sm font-bold mb-2">Type de Carburant:</label>
+              <select [(ngModel)]="publication.typeCarburant" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let option of typeCarburantOptions" [value]="option">{{ option }}</option>
+              </select>
             </div>
-        </div>
-            
+          </div>
+  
+          <div class="mb-4">
+            <label for="prix" class="block text-gray-700 text-sm font-bold mb-2">Prix:</label>
+            <input [(ngModel)]="publication.prix" type="number" id="prix" name="prix" class="w-full p-2 border rounded-md">
+          </div>
+  
+          <div class="grid md:grid-cols-3 md:gap-6">
+            <div class="mb-4">
+              <label for="nombrePlaces" class="block text-gray-700 text-sm font-bold mb-2">Nombre de Places:</label>
+              <input [(ngModel)]="publication.nombrePlace" type="number" id="nombrePlaces" name="nombrePlaces" class="w-full p-2 border rounded-md">
+            </div>
+  
+            <div class="mb-4">
+              <label for="couleur" class="block text-gray-700 text-sm font-bold mb-2">Couleur:</label>
+              <input [(ngModel)]="publication.couleur" type="text" id="couleur" name="couleur" class="w-full p-2 border rounded-md" />
+            </div>
+  
+            <div class="mb-4">
+              <label for="kilometrage" class="block text-gray-700 text-sm font-bold mb-2">Kilométrage:</label>
+              <input [(ngModel)]="publication.kilometrage" type="number" id="kilometrage" name="kilometrage" class="w-full p-2 border rounded-md">
+            </div>
+          </div>
+  
+          <div class="mb-4">
+            <label for="Description" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
+            <textarea [(ngModel)]="publication.descrption" id="Description" name="Description" class="w-full p-2 border rounded-md"></textarea>
+          </div>
+  
+          <div class="col-span-full">
+            <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover photo</label>
+            <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+              <div class="text-center">
+                <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                </svg>
+                <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                  <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                    <span>Upload a file</span>
+                    <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                  </label>
+                  <p class="pl-1">or drag and drop</p>
+                </div>
+                <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="mb-4 flex justify-between mt-8">
+            <button type="submit" class="bg-orange-500 text-white px-8 py-2 rounded-md hover:bg-orange-600 mx-auto w-2/5">Publier</button>
+            <button  class="bg-orange-500 text-white px-8 py-2 rounded-md hover:bg-orange-600 mx-auto w-2/5" routerLink="/profil">Annuler</button>
           
-
-<div class="mb-4">
-    <label for="prix" class="block text-gray-700 text-sm font-bold mb-2">Prix:</label>
-    <input [(ngModel)]="data.prix" type="number" id="prix" name="prix" class="w-full p-2 border rounded-md">
-</div>
-<div class="grid md:grid-cols-3 md:gap-6">
-<div class="mb-4">
-    <label for="nombrePlaces" class="block text-gray-700 text-sm font-bold mb-2">Nombre de Places:</label>
-    <input  [(ngModel)]="data.nombrePlace" type="number" id="nombrePlaces" name="nombrePlaces" class="w-full p-2 border rounded-md">
-</div>
-
-<div class="mb-4">
-    <label for="couleur" class="block text-gray-700 text-sm font-bold mb-2">Couleur:</label>
-    <input  [(ngModel)]="data.couleur" type="text" id="couleur" name="couleur" class="w-full p-2 border rounded-md" />
-</div>
-
-<div class="mb-4">
-    <label for="kilometrage" class="block text-gray-700 text-sm font-bold mb-2">Kilométrage:</label>
-    <input [(ngModel)]="data.kilometrage" type="number" id="kilometrage" name="kilometrage" class="w-full p-2 border rounded-md">
-</div>
-</div>
-
-<div class="mb-4">
-    <label for="Description" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
-    <textarea  [(ngModel)]="data.descrption" id="Description" name="Description" class="w-full p-2 border rounded-md"></textarea>
-</div>
-
-
-
-<!-- ... (code suivant) ... -->
-
-
-<div class="col-span-full">
-    <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover photo</label>
-    <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-      <div class="text-center">
-        <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
-        </svg>
-        <div class="mt-4 flex text-sm leading-6 text-gray-600">
-          <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-            <span>Upload a file</span>
-            <input id="file-upload" name="file-upload" type="file" class="sr-only">
-          </label>
-          <p class="pl-1">or drag and drop</p>
-        </div>
-        <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+          </div>
+        </form>
       </div>
     </div>
-</div>
-
-            <div class="mb-4">
-                <button (click)="AjouterPublication()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Publier</button>
-            </div>
-
-        </form>
-
-    </div>
-
-
+  </div>

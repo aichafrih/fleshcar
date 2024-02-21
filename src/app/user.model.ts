@@ -9,4 +9,6 @@ export interface User {
     Ville: string;
     CodePostal?: string;
     PhotoProfil?: string;
+    createdAt: Date;
+  updatedAt: Date;
   }

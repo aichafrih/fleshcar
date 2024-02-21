@@ -5,6 +5,9 @@ import { User } from '../user.model';
 import { Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthServiceService } from '../auth-service.service';
+
+
 
 @Component({
   selector: 'app-profile',
@@ -12,12 +15,24 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit, OnDestroy {
+showSuccessMessage(arg0: string) {
+throw new Error('Method not implemented.');
+}
   userId: number | null = null;
   private sub!: Subscription;
   user: User | null = null;
   error: string | null = null; // Ajoutez une variable pour stocker les erreurs
+  showModal = false;
+  AuthServiceService: any;
+  errorMessage: string | undefined;
+updateAccountDto: any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthServiceService,
+    private userService: UserService,
+    private http: HttpClient
+    ) { }
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
@@ -50,9 +65,32 @@ export class ProfileComponent implements OnInit, OnDestroy {
         // Gérer l'absence de token, par exemple rediriger vers la page de connexion
       }
     });
+
+  
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
+
+  
+  currentPopup: string | null = null;
+
+  // Fonction pour ouvrir un popup spécifique
+  openModal(popupId: string) {
+    this.currentPopup = popupId;
+  }
+
+  // Fonction pour fermer le popup actuellement ouvert
+  closeModal() {
+    this.currentPopup = null;
+  }
+  
+
+  // déconnexion
+  logout(): void {
+    this.authService.logout(); // Appel à la méthode de déconnexion du service d'authentification
+    this.router.navigate(['/home']); // Redirection vers la page d'accueil après la connexion
+  }
+
 }

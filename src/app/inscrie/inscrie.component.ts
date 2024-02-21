@@ -16,7 +16,7 @@ export class InscrieComponent implements OnInit {
   openModal() {
     this.showModal = true;
   }
-
+  
   // Fonction pour fermer la fenêtre modale
   closeModal() {
     this.showModal = false;
