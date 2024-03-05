@@ -33,6 +33,7 @@ const routes: Routes = [
     { path: 'oublier-Mot-de-passe', component: ForgotPasswordComponent },
     { path: 'code-de-confirmation', component: CodeDeConfirmationComponent },
     { path: 'changer-Mot-de-passe', component: ChangeMotDePasseComponent },
+    
     { path: 'demande-expertise', component: DemandeExpertiseComponent }
 ];
 

@@ -1,24 +1,59 @@
+<!-- Formulaire de confirmation du code et de réinitialisation du mot de passe -->
+<div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-
-    <form class="shadow-md px-4 py-6 bg-gray-50">
-        <h3 class="block text-gray-600 ">Nous vous enverrons par e-mail des instructions pour réinitialiser votre mot de passe. <br>
+    <form class="shadow-md px-4 py-6 bg-gray-50" [formGroup]="confirmForm" (ngSubmit)="onSubmit()">
+        <h3 class="block text-gray-600">Nous vous enverrons par e-mail des instructions pour réinitialiser votre mot de passe. <br>
             Si vous ne parvenez pas à accéder à votre messagerie,<br>
-             vous pouvez essayer de récupérer votre compte.</h3><br>
+            vous pouvez essayer de récupérer votre compte.</h3><br>
         <div class="flex justify-center gap-2 mb-6">
-            <input class="w-12 h-12 text-center border rounded-md shadow-sm focus:border-teal-500 focus:ring-teal-500" type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
-            <input class="w-12 h-12 text-center border rounded-md shadow-sm focus:border-teal-500 focus:ring-teal-500" type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
-            <input class="w-12 h-12 text-center border rounded-md shadow-sm focus:border-teal-500 focus:ring-teal-500" type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
-            <input class="w-12 h-12 text-center border rounded-md shadow-sm focus:border-teal-500 focus:ring-teal-500" type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
-            <input class="w-12 h-12 text-center border rounded-md shadow-sm focus:border-teal-500 focus:ring-teal-500" type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
+            <input formControlName="code" class="w-50 h-12 text-center border rounded-md shadow-sm focus:border-teal-500 focus:ring-teal-500" type="text"  name="code" maxlength="5" pattern="[0-9]" inputmode="numeric" autocomplete="one-time-code" required>
         </div>
+        <!-- Champs pour le nouveau mot de passe et la confirmation -->
+        <div *ngIf="showResetPasswordPopup">
+            <div>
+                <label for="newPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nouveau mot de passe</label>
+                <input formControlName="newPassword" type="password" name="newPassword" id="newPassword" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+            </div>
+            <div>
+                <label for="confirmNewPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmez le mot de passe</label>
+                <input formControlName="confirmNewPassword" type="password" name="confirmNewPassword" id="confirmNewPassword" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+            </div>
+        </div>
+        <!-- Bouton pour vérifier le code et afficher les champs de réinitialisation -->
         <div class="flex items-center justify-center">
-            <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                Verifier
-            </button>
-            <a class="inline-block align-baseline font-bold text-sm text-orange-500 hover:text-orange-800 ml-4" href="#">
-                Renvoyer OTP
-            </a>
+            <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" (click)="onSubmit()">Vérifier</button>
         </div>
     </form>
+
 </div>
+
+<!-- Popup pour réinitialiser le mot de passe -->
+<section class="bg-gray-50 dark:bg-gray-900" *ngIf="showResetPasswordPopup">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
+            <h2 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                Nouveau mot de passe
+            </h2>
+            <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="#">
+                <div>
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nouveau mot de passe</label>
+                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                </div>
+                <div>
+                    <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmez le mot de passe</label>
+                    <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="newsletter" aria-describedby="newsletter" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required>
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="newsletter" class="font-light text-gray-500 dark:text-gray-300">
+                            J'accepte  <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">les termes et conditions</a></label>
+                    </div>
+                </div>
+                <button type="submit" class="w-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Réinitialiser le mot de passe</button>
+            </form>
+        </div>
+    </div>
+</section>

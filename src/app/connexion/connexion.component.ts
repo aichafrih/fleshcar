@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../auth-service.service';
 import { SharedService } from '../shared.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-connexion',
@@ -15,8 +17,11 @@ export class ConnexionComponent implements OnInit {
 
   constructor(
     private _shared: SharedService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private formBuilder: FormBuilder, private http: HttpClient) {
+      this.createForm();
+    }
+  
 
   ngOnInit(): void {}
 
@@ -43,5 +48,60 @@ export class ConnexionComponent implements OnInit {
         this.error = error.error.message || 'Une erreur s\'est produite lors de la connexion.';
       }
     );
+  }
+  isModalOpen: boolean = false;
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+
+
+
+  forgotPasswordForm!: FormGroup;
+  resetPasswordForm!: FormGroup;
+  verificationCodeSent: boolean = false;
+  newPasswordSet: boolean = false;
+
+
+  createForm() {
+    this.forgotPasswordForm = this.formBuilder.group({
+      email: ['', Validators.required]
+    });
+
+    this.resetPasswordForm = this.formBuilder.group({
+      code: ['', Validators.required],
+      newPassword: ['', Validators.required]
+    });
+  }
+
+  sendVerificationCode() {
+    const email = this.forgotPasswordForm.value.email;
+    if (email) {
+      this.http.post<any>('http://localhost:3000/auth/reset-pwd-demand', { email }).subscribe(response => {
+        if (response.success) {
+          this.verificationCodeSent = true;
+        }
+      });
+    }
+  }
+
+  resetPassword() {
+    const code = this.resetPasswordForm.value.code;
+    const newPassword = this.resetPasswordForm.value.newPassword;
+    if (code && newPassword) {
+      // Assurez-vous d'avoir récupéré le token d'authentification
+      const token = 'votre_token';
+      const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+      this.http.post<any>('http://localhost:3000/auth/reset-pwd-confirmation', { code, newPassword }, { headers }).subscribe(response => {
+        if (response.success) {
+          this.newPasswordSet = true;
+        }
+      });
+    }
   }
 }

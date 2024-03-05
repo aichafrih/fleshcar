@@ -32,9 +32,14 @@ export class SharedService {
   AjouterPublication(data: any){
     return this.http.post(this.url + 'pubs/create', data);
 }
+requestPasswordReset(email: string): Observable<any> {
+  return this.http.post<any>(this.url +'auth/reset-pass', { email });
+}
 
- // login(loginForm: loginForm){
- //   return this.http.post<any>('/api/auth/connexion',{email:loginForm.email,MotDePasse:loginForm.MotDePasse}).pipe(
-    //  map((token) => { console.log('token'); localStorage.setItem('blog-token',token.access_token); return token; }) )}}
+confirmPasswordReset(data: any): Observable<any> {
+  return this.http.post<any>(this.url + 'auth/reset-pass-confirmation', data);
+}
+
+
 
 }

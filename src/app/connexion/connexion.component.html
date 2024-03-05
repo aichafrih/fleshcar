@@ -26,8 +26,8 @@
         <div *ngIf="error" class="text-red-500 text-sm">{{ error }}</div>
       
         <div class="flex justify-between w-full mb-5">
-          <a href="#" class="text-blue-600 hover:underline">Mot de passe oublié ?</a>
-          <a href="#" class="text-green-600 hover:underline" routerLink="/inscrie">Créer un compte</a>
+          <a  class="text-blue-600 hover:underline" routerLink="openModal()">Mot de passe oublié ?</a>
+          <a  class="text-green-600 hover:underline" routerLink="/inscrie">Créer un compte</a>
         </div>
       
         <button (click)="connexion()" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm w-full sm:w-auto max-w-full px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-borange-700 dark:focus:ring-borange-800">Se Connecter</button>
@@ -48,3 +48,9 @@
   </div>
 
   
+
+
+  
+    <div *ngIf="isModalOpen">
+   <app-forgot-password></app-forgot-password>
+ </div>

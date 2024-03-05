@@ -1,9 +1,4 @@
 
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
-
-
 <div class="bg-gray-300" *ngIf="user">
 
   <!-- End of Navbar -->
@@ -15,10 +10,7 @@
           <div class="w-full md:w-3/12 md:mx-2">
               <!-- Profile Card -->
               <div class="bg-white p-3 border-t-4 border-orange-400">
-                  <div class="image overflow-hidden">
-                      <img class="h-auto w-full mx-auto"
-                          src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg" alt="">
-                  </div>
+            
                   <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ user.Prenom }}&nbsp;{{ user.Nom }} </h1>
                    <img src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" class="w-32 rounded-full" alt="Avatar" />
                   

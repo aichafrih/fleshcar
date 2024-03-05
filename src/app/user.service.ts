@@ -8,6 +8,9 @@ import { catchError, map } from 'rxjs/operators'; // Importez l'opérateur map d
   providedIn: 'root'
 })
 export class UserService {
+  getUserIdFromToken(): any {
+    throw new Error('Method not implemented.');
+  }
   router: any;
 
   constructor(private http: HttpClient) { }
@@ -23,9 +26,7 @@ export class UserService {
 
 
   getUserById(id: number): Observable<User> {
-    return this.http.get<User>(this.url+'user/' + id).pipe(
-      map((user:User)=> user)
-    )
+    return this.http.get<User>(this.url + 'user/' + id);
   }
 
 
